@@ -9,6 +9,5 @@ COPY package.json /opt/yogeshlonkar/pod-dependency/package.json
 RUN npm install
 
 COPY ./src /opt/yogeshlonkar/pod-dependency/src
-COPY .foreverignore /opt/yogeshlonkar/.foreverignore
 
 CMD ["npm", "start"]

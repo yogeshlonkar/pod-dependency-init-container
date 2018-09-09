@@ -22,7 +22,7 @@ spec:
   ...
   initContainers:
   - name: pod-dependency
-    image: ylonkar/pod-dependency-init-container
+    image: ylonkar/pod-dependency-init-container:1.0
     env:
     - name: POD_LABELS
       value: app=nodeapp,name=mongo-1

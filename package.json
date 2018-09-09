@@ -1,6 +1,6 @@
 {
   "name": "pod-dependency-init-container",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Container to define pod dependency on other pods",
   "main": "src/index.js",
   "engines": {
