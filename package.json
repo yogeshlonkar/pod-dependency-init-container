@@ -1,0 +1,35 @@
+{
+  "name": "pod-dependency-init-container",
+  "version": "0.1.0",
+  "description": "Container to define pod dependency on other pods",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yogeshlonkar/pod-dependency-init-container.git"
+  },
+  "keywords": [
+    "kubernetes",
+    "k8s",
+    "pod",
+    "dependency",
+    "init",
+    "container",
+    "ordering"
+  ],
+  "author": "Yogesh Lonkar <lonkar.yogeshr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yogeshlonkar/pod-dependency-init-container/issues"
+  },
+  "homepage": "https://github.com/yogeshlonkar/pod-dependency-init-container",
+  "devDependencies": {},
+  "dependencies": {
+    "kubernetes-client": "^6.1.0"
+  }
+}
