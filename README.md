@@ -27,9 +27,9 @@ spec:
     - name: POD_LABELS
       value: app=nodeapp,name=mongo-1
     - name: MAX_RETRY
-      value: 10
+      value: "10"
     - name: RETRY_TIME_OUT
-      value: 5000
+      value: "5000"
 ```
 
 ## To do
