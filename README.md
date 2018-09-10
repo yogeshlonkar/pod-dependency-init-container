@@ -20,6 +20,7 @@ Example usage:
 spec:
   containers:
   ...
+  serviceAccountName: {{ .Values.serviceAccount }} #optional
   initContainers:
   - name: pod-dependency
     image: ylonkar/pod-dependency-init-container:1.0
@@ -30,6 +31,46 @@ spec:
       value: "10"
     - name: RETRY_TIME_OUT
       value: "5000"
+```
+
+## RBAC
+In case of RBAC this container requires `pods` resource `get`, `list`, `watch` access. Which can be provided by below yaml
+```yaml
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: {{ .Values.serviceAccount }}
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+      - services
+      - endpoints
+    verbs:
+      - get
+      - list
+      - watch
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Values.serviceAccount }}
+  namespace: {{ .Values.namespace }}
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: system:serviceaccount:{{ .Values.serviceAccount }}:default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ .Values.serviceAccount }}
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.serviceAccount }}
+  namespace: {{ .Values.namespace }}
 ```
 
 ## To do
