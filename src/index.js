@@ -24,6 +24,7 @@ const checkIfPodsRunning = async () => {
   } catch (error) {
     console.error('couldn\'t fetch running pods');
     console.error(error, error.message, error.stack);
+    process.exit(1);
   }
 };
 setTimeout(checkIfPodsRunning, 1500);
