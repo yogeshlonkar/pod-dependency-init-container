@@ -1,6 +1,6 @@
 # Pod dependecy init container
 
-This container can be used as init container to specify dependecy of other pod. It will check exit with success code if any pod with give label selector is found running in current namespace.
+This container can be used as init container to specify dependecy of other pod. It will check for exiting pod with success status. If any pod with given label selector is found running in current namespace it will exit with success else exit with failure after timeout.
 
 ## How to use it
 
@@ -11,9 +11,9 @@ https://hub.docker.com/r/ylonkar/pod-dependency-init-container/
 
 | Environment Variable | Required | Default | Description |
 | --- | --- | --- | --- |
-| POD_LABELS | Yes | - | This is comma (,) seperated string for labels of dependency pods which which will be check of `Running` phase. |
-| MAX_RETRY | NO | 5 | Maximum number of times for which init container will try to check if any pod with give `POD_LABELS` is `Running`. |
-| RETRY_TIME_OUT | NO | 1500 | Number of milliseconds init container will time out between each retry. |
+| POD_LABELS | Yes | - | This is comma (,) seperated string of labels of dependency pods which will be checked for `Running` phase. |
+| MAX_RETRY | NO | 5 | Maximum number of times for which init container will try to check if dependency pods are `Running`. |
+| RETRY_TIME_OUT | NO | 1500 | Number of milliseconds init container will pause between each retry. |
 
 Example usage:
 ```yaml
