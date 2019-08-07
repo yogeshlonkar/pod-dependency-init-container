@@ -4,8 +4,9 @@ This container can be used as init container to specify dependecy of other pod. 
 
 ## How to use it
 
-The docker image is hosted on docker hub and can be found here:
-https://hub.docker.com/r/ylonkar/pod-dependency-init-container/
+Use with [github packages](https://github.com/yogeshlonkar/pod-dependency-init-container/packages) or
+The docker image is hosted on docker hub and can be found here: https://hub.docker.com/r/ylonkar/pod-dependency-init-container/
+
 
 ### Settings
 
