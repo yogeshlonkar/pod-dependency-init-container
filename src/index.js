@@ -1,5 +1,5 @@
 const { getRunningPods } = require('./lib/k8s');
-const { podLabels, maxRetry } = require('./lib/config');
+const { podLabels, maxRetry, retryTimeOut } = require('./lib/config');
 const CurrentDate = () => { };
 CurrentDate.toString = () => `[${new Date().toISOString()}]`
 console.info = console.info.bind(console, '%s', CurrentDate);
@@ -15,7 +15,7 @@ const checkIfPodsRunning = async () => {
       console.info(`found running pod with label(s) ${podLabels}`);
       process.exit(0);
     } else if (noOfTrys < maxRetry) {
-      setTimeout(checkIfPodsRunning, 1500);
+      setTimeout(checkIfPodsRunning, retryTimeOut);
     } else {
       console.error(`didn't find any running pod with label(s) ${podLabels} after ${noOfTrys} try(s)`);
       process.exit(1);
@@ -27,4 +27,4 @@ const checkIfPodsRunning = async () => {
     process.exit(1);
   }
 };
-setTimeout(checkIfPodsRunning, 1500);
+setTimeout(checkIfPodsRunning, retryTimeOut);
