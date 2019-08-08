@@ -24,7 +24,7 @@ spec:
   serviceAccountName: {{ .Values.serviceAccount }} #optional
   initContainers:
   - name: pod-dependency
-    image: ylonkar/pod-dependency-init-container:1.0
+    image: ylonkar/pod-dependency-init-container:1.0.1
     env:
     - name: POD_LABELS
       value: app=nodeapp,name=mongo-1
