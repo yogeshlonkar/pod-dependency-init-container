@@ -12,7 +12,7 @@ const getRunningPods = async () => {
       specLoaded = true;
     }
 
-    const podLabelArray = podLabels.split(',');
+    const podLabelArray = podLabels.split(',').map(label => label.trim());
     const podsRunning = await Promise.all(
         podLabelArray.map(async podLabel => {
           const response = await client.api.v1.namespaces(namespace).pods.get({ qs: { labelSelector: podLabel, fieldSelector: 'status.phase=Running' } });
