@@ -5,6 +5,7 @@ RUN mkdir -p /opt/yogeshlonkar/pod-dependency
 WORKDIR /opt/yogeshlonkar/pod-dependency
 
 COPY package.json /opt/yogeshlonkar/pod-dependency/package.json
+COPY package-lock.json /opt/yogeshlonkar/pod-dependency/package-lock.json
 
 RUN npm install
 
