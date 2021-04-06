@@ -30,6 +30,6 @@
   "homepage": "https://github.com/yogeshlonkar/pod-dependency-init-container",
   "devDependencies": {},
   "dependencies": {
-    "kubernetes-client": "^6.1.0"
+    "kubernetes-client": "^9.0.0"
   }
 }

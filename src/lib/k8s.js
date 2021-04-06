@@ -1,5 +1,4 @@
-const Client = require('kubernetes-client').Client;
-const config = require('kubernetes-client').config;
+const { Client, config } = require('kubernetes-client');
 const { namespace, podLabels } = require('./config');
 
 const client = new Client({ config: config.getInCluster() });
